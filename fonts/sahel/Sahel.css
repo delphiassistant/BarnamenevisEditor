@@ -1,0 +1,111 @@
+/* ================================
+   Sahel (primary family)
+   - Uses variable font when supported
+   - Falls back to static weights
+   - Files expected under /webfonts/
+=================================== */
+
+/* Prefer variable font in capable browsers */
+@supports (font-variation-settings: normal) {
+  @font-face {
+    font-family: "Sahel";
+    src: url("webfonts/Sahel-VF.woff2") format("woff2");
+    font-weight: 100 900;      /* Thin..Black range */
+    font-style: normal;
+    font-display: swap;
+  }
+}
+
+/* Fallback for browsers without variable-font support */
+@supports not (font-variation-settings: normal) {
+  /* Regular 400 */
+  @font-face {
+    font-family: "Sahel";
+    src: url("webfonts/Sahel.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  /* Light 300 */
+  @font-face {
+    font-family: "Sahel";
+    src: url("webfonts/Sahel-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+  /* SemiBold 600 */
+  @font-face {
+    font-family: "Sahel";
+    src: url("webfonts/Sahel-SemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  /* Bold 700 */
+  @font-face {
+    font-family: "Sahel";
+    src: url("webfonts/Sahel-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  /* Black 900 */
+  @font-face {
+    font-family: "Sahel";
+    src: url("webfonts/Sahel-Black.woff2") format("woff2");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+
+/* Optional: if you want the statics always available (even with VF), 
+   you can drop the @supports wrappers and keep all @font-face blocks together. */
+
+
+/* ================================
+   Sahel FD (separate family)
+   - Static weights only (per provided files)
+=================================== */
+
+/* Regular 400 */
+@font-face {
+  font-family: "Sahel FD";
+  src: url("webfonts/Sahel-FD.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* Light 300 */
+@font-face {
+  font-family: "Sahel FD";
+  src: url("webfonts/Sahel-Light-FD.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+/* SemiBold 600 */
+@font-face {
+  font-family: "Sahel FD";
+  src: url("webfonts/Sahel-SemiBold-FD.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+/* Bold 700 */
+@font-face {
+  font-family: "Sahel FD";
+  src: url("webfonts/Sahel-Bold-FD.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* Black 900 */
+@font-face {
+  font-family: "Sahel FD";
+  src: url("webfonts/Sahel-Black-FD.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}

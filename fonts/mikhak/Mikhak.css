@@ -1,0 +1,38 @@
+/* -------------------------------
+   Base Mikhak (Default Design)
+---------------------------------*/
+@font-face { font-family: "Mikhak"; src: url("webfonts/Mikhak-Thin.woff2") format("woff2"); font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: "Mikhak"; src: url("webfonts/Mikhak-ExtraLight.woff2") format("woff2"); font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: "Mikhak"; src: url("webfonts/Mikhak-Light.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Mikhak"; src: url("webfonts/Mikhak-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Mikhak"; src: url("webfonts/Mikhak-Medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Mikhak"; src: url("webfonts/Mikhak-SemiBold.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Mikhak"; src: url("webfonts/Mikhak-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Mikhak"; src: url("webfonts/Mikhak-ExtraBold.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Mikhak"; src: url("webfonts/Mikhak-Black.woff2") format("woff2"); font-weight: 900; font-style: normal; font-display: swap; }
+
+/* -------------------------------
+   Mikhak DS1 (Design Style 1)
+---------------------------------*/
+@font-face { font-family: "Mikhak DS1"; src: url("webfonts/Mikhak-DS1-Thin.woff2") format("woff2"); font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: "Mikhak DS1"; src: url("webfonts/Mikhak-DS1-ExtraLight.woff2") format("woff2"); font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: "Mikhak DS1"; src: url("webfonts/Mikhak-DS1-Light.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Mikhak DS1"; src: url("webfonts/Mikhak-DS1-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Mikhak DS1"; src: url("webfonts/Mikhak-DS1-Medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Mikhak DS1"; src: url("webfonts/Mikhak-DS1-SemiBold.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Mikhak DS1"; src: url("webfonts/Mikhak-DS1-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Mikhak DS1"; src: url("webfonts/Mikhak-DS1-ExtraBold.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Mikhak DS1"; src: url("webfonts/Mikhak-DS1-Black.woff2") format("woff2"); font-weight: 900; font-style: normal; font-display: swap; }
+
+/* -------------------------------
+   Mikhak DS2 (Design Style 2)
+---------------------------------*/
+@font-face { font-family: "Mikhak DS2"; src: url("webfonts/Mikhak-DS2-Thin.woff2") format("woff2"); font-weight: 100; font-style: normal; font-display: swap; }
+@font-face { font-family: "Mikhak DS2"; src: url("webfonts/Mikhak-DS2-ExtraLight.woff2") format("woff2"); font-weight: 200; font-style: normal; font-display: swap; }
+@font-face { font-family: "Mikhak DS2"; src: url("webfonts/Mikhak-DS2-Light.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Mikhak DS2"; src: url("webfonts/Mikhak-DS2-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Mikhak DS2"; src: url("webfonts/Mikhak-DS2-Medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Mikhak DS2"; src: url("webfonts/Mikhak-DS2-SemiBold.woff2") format("woff2"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Mikhak DS2"; src: url("webfonts/Mikhak-DS2-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Mikhak DS2"; src: url("webfonts/Mikhak-DS2-ExtraBold.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
+@font-face { font-family: "Mikhak DS2"; src: url("webfonts/Mikhak-DS2-Black.woff2") format("woff2"); font-weight: 900; font-style: normal; font-display: swap; }

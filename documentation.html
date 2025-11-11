@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - BarnamenevisEditor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/BarnamenevisEditor.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-pencil-square"></i> BarnamenevisEditor
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Demo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index-fa.html">نسخه فارسی</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="documentation.html">Documentation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="examples.html">Examples</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-link nav-link" id="toggleDarkMode" style="border: none;">
+                            <i class="bi bi-moon-fill"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="sticky-top" style="top: 20px;">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Table of Contents</h5>
+                        </div>
+                        <div class="list-group list-group-flush">
+                            <a href="#installation" class="list-group-item list-group-item-action">Installation</a>
+                            <a href="#basic-usage" class="list-group-item list-group-item-action">Basic Usage</a>
+                            <a href="#configuration" class="list-group-item list-group-item-action">Configuration</a>
+                            <a href="#methods" class="list-group-item list-group-item-action">Methods</a>
+                            <a href="#events" class="list-group-item list-group-item-action">Events</a>
+                            <a href="#toolbar" class="list-group-item list-group-item-action">Toolbar Options</a>
+                            <a href="#localization" class="list-group-item list-group-item-action">Localization</a>
+                            <a href="#custom-fonts" class="list-group-item list-group-item-action">Custom Fonts</a>
+                            <a href="#styling" class="list-group-item list-group-item-action">Styling & Themes</a>
+                            <a href="#keyboard" class="list-group-item list-group-item-action">Keyboard Shortcuts</a>
+                            <a href="#examples" class="list-group-item list-group-item-action">Code Examples</a>
+                            <a href="#troubleshooting" class="list-group-item list-group-item-action">Troubleshooting</a>
+                            <a href="#browser-support" class="list-group-item list-group-item-action">Browser Support</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+                <h1 class="mb-4">BarnamenevisEditor Documentation</h1>
+                <p class="lead">Complete guide to using BarnamenevisEditor in your projects</p>
+
+                <section id="installation" class="mb-5">
+                    <h2>Installation</h2>
+                    <p>Include the required files in your HTML:</p>
+                    <pre class="bg-light p-3 rounded"><code>&lt;!-- CSS --&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+&lt;link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet"&gt;
+&lt;link href="css/BarnamenevisEditor.css" rel="stylesheet"&gt;
+
+&lt;!-- JavaScript --&gt;
+&lt;script src="https://code.jquery.com/jquery-3.7.1.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;
+&lt;script src="js/BarnamenevisEditor.js"&gt;&lt;/script&gt;
+&lt;script src="js/lang/en.js"&gt;&lt;/script&gt;</code></pre>
+                </section>
+
+                <section id="basic-usage" class="mb-5">
+                    <h2>Basic Usage</h2>
+                    <p>Initialize the editor on a textarea element:</p>
+                    <pre class="bg-light p-3 rounded"><code>&lt;textarea id="myEditor"&gt;Initial content&lt;/textarea&gt;
+
+&lt;script&gt;
+$(document).ready(function() {
+    $('#myEditor').barnamenevisEditor({
+        language: 'en'
+    });
+});
+&lt;/script&gt;</code></pre>
+                </section>
+
+                <section id="configuration" class="mb-5">
+                    <h2>Configuration Options</h2>
+                    <p>Customize the editor with various options:</p>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>Type</th>
+                                <th>Default</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>height</code></td>
+                                <td>String</td>
+                                <td>'400px'</td>
+                                <td>Height of the editor content area. Accepts any valid CSS height.</td>
+                            </tr>
+                            <tr>
+                                <td><code>language</code></td>
+                                <td>String</td>
+                                <td>'en'</td>
+                                <td>Language code loaded from window.BarnamenevisEditor.lang (e.g., 'en', 'fa')</td>
+                            </tr>
+                            <tr>
+                                <td><code>toolbar</code></td>
+                                <td>String/Array</td>
+                                <td>'full'</td>
+                                <td>Toolbar configuration: 'full', 'basic', 'minimal', or custom nested array of button ids</td>
+                            </tr>
+                            <tr>
+                                <td><code>fontFamilies</code></td>
+                                <td>Array</td>
+                                <td>internal defaults</td>
+                                <td>Array of strings or {displayName, value} objects. Replaces defaults entirely when specified.</td>
+                            </tr>
+                            <tr>
+                                <td><code>fontSizes</code></td>
+                                <td>Array</td>
+                                <td>[1,2,3,4,5,6,7]</td>
+                                <td>Mapping onto browser font size levels (1–7)</td>
+                            </tr>
+                            <tr>
+                                <td><code>colors</code></td>
+                                <td>Array</td>
+                                <td>64 preset hex values</td>
+                                <td>Color palette for foreground/background pickers</td>
+                            </tr>
+                            <tr>
+                                <td><code>showStatusBar</code></td>
+                                <td>Boolean</td>
+                                <td>true</td>
+                                <td>Toggle status bar with word/character counts</td>
+                            </tr>
+                            <tr>
+                                <td><code>placeholder</code></td>
+                                <td>String</td>
+                                <td>'Start typing…'</td>
+                                <td>Placeholder text shown when editor is empty</td>
+                            </tr>
+                            <tr>
+                                <td><code>onInit</code></td>
+                                <td>Function</td>
+                                <td>null</td>
+                                <td>Callback fired after editor mounts. Receives editor instance.</td>
+                            </tr>
+                            <tr>
+                                <td><code>onChange</code></td>
+                                <td>Function</td>
+                                <td>null</td>
+                                <td>Fired whenever content changes. Receives HTML string.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4 class="mt-4">Example Configuration:</h4>
+                    <pre class="bg-light p-3 rounded"><code>$('#myEditor').barnamenevisEditor({
+    height: '600px',
+    language: 'en',
+    toolbar: 'full',
+    onChange: function(content) {
+        console.log('Content changed:', content);
+    },
+    onInit: function(editor) {
+        console.log('Editor initialized:', editor);
+    }
+});</code></pre>
+                </section>
+
+                <section id="methods" class="mb-5">
+                    <h2>Methods</h2>
+                    <p>Available methods to interact with the editor:</p>
+                    
+                    <div class="card mb-3">
+                        <div class="card-header"><code>getContent()</code></div>
+                        <div class="card-body">
+                            <p>Get the HTML content from the editor</p>
+                            <pre class="bg-light p-2 rounded"><code>var html = $('#myEditor').barnamenevisEditor('getContent');</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="card-header"><code>setContent(html)</code></div>
+                        <div class="card-body">
+                            <p>Set HTML content in the editor</p>
+                            <pre class="bg-light p-2 rounded"><code>$('#myEditor').barnamenevisEditor('setContent', '&lt;p&gt;New content&lt;/p&gt;');</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="card-header"><code>getText()</code></div>
+                        <div class="card-body">
+                            <p>Get plain text content (without HTML tags)</p>
+                            <pre class="bg-light p-2 rounded"><code>var text = $('#myEditor').barnamenevisEditor('getText');</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="card-header"><code>clear()</code></div>
+                        <div class="card-body">
+                            <p>Clear all content from the editor</p>
+                            <pre class="bg-light p-2 rounded"><code>$('#myEditor').barnamenevisEditor('clear');</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="card-header"><code>destroy()</code></div>
+                        <div class="card-body">
+                            <p>Destroy the editor instance and restore the original textarea</p>
+                            <pre class="bg-light p-2 rounded"><code>$('#myEditor').barnamenevisEditor('destroy');</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="card-header"><code>focus()</code></div>
+                        <div class="card-body">
+                            <p>Set focus to the editor</p>
+                            <pre class="bg-light p-2 rounded"><code>$('#myEditor').barnamenevisEditor('focus');</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="card-header"><code>disable()</code></div>
+                        <div class="card-body">
+                            <p>Disable the editor (read-only mode)</p>
+                            <pre class="bg-light p-2 rounded"><code>$('#myEditor').barnamenevisEditor('disable');</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="card mb-3">
+                        <div class="card-header"><code>enable()</code></div>
+                        <div class="card-body">
+                            <p>Enable the editor</p>
+                            <pre class="bg-light p-2 rounded"><code>$('#myEditor').barnamenevisEditor('enable');</code></pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="events" class="mb-5">
+                    <h2>Events</h2>
+                    <p>Listen to editor events:</p>
+                    
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Event</th>
+                                <th>Description</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>barnameneviseditor.change</code></td>
+                                <td>Triggered when content changes</td>
+                                <td><pre class="mb-0"><code>$('#myEditor').on('barnameneviseditor.change', function(e, content) {
+    console.log('Changed:', content);
+});</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td><code>barnameneviseditor.init</code></td>
+                                <td>Triggered when editor is initialized</td>
+                                <td><pre class="mb-0"><code>$('#myEditor').on('barnameneviseditor.init', function(e, editor) {
+    console.log('Initialized');
+});</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td><code>barnameneviseditor.focus</code></td>
+                                <td>Triggered when editor gains focus</td>
+                                <td><pre class="mb-0"><code>$('#myEditor').on('barnameneviseditor.focus', function() {
+    console.log('Focused');
+});</code></pre></td>
+                            </tr>
+                            <tr>
+                                <td><code>barnameneviseditor.blur</code></td>
+                                <td>Triggered when editor loses focus</td>
+                                <td><pre class="mb-0"><code>$('#myEditor').on('barnameneviseditor.blur', function() {
+    console.log('Blurred');
+});</code></pre></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="toolbar" class="mb-5">
+                    <h2>Toolbar Options</h2>
+                    <p>Customize the toolbar with preset configurations or custom buttons:</p>
+                    
+                    <h4>Preset Configurations:</h4>
+                    <ul>
+                        <li><code>'full'</code> - All available buttons (default)</li>
+                        <li><code>'basic'</code> - Essential formatting buttons only</li>
+                        <li><code>'minimal'</code> - Minimal set of buttons</li>
+                    </ul>
+
+                    <h4 class="mt-4">Custom Toolbar:</h4>
+                    <pre class="bg-light p-3 rounded"><code>$('#myEditor').barnamenevisEditor({
+    language: 'en',
+    toolbar: [
+        ['bold', 'italic', 'underline'],
+        ['fontname', 'fontsize'],
+        ['forecolor', 'backcolor'],
+        ['insertLink', 'insertImage'],
+        ['undo', 'redo']
+    ]
+});</code></pre>
+
+                    <h4 class="mt-4">Available Toolbar Buttons:</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul>
+                                <li><code>bold</code> - Bold text</li>
+                                <li><code>italic</code> - Italic text</li>
+                                <li><code>underline</code> - Underline text</li>
+                                <li><code>strikethrough</code> - Strikethrough text</li>
+                                <li><code>fontname</code> - Font family selector</li>
+                                <li><code>fontsize</code> - Font size selector</li>
+                                <li><code>forecolor</code> - Text color</li>
+                                <li><code>backcolor</code> - Background color</li>
+                                <li><code>removeFormat</code> - Clear formatting</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul>
+                                <li><code>insertOrderedList</code> - Numbered list</li>
+                                <li><code>insertUnorderedList</code> - Bulleted list</li>
+                                <li><code>justifyLeft</code> - Align left</li>
+                                <li><code>justifyCenter</code> - Align center</li>
+                                <li><code>justifyRight</code> - Align right</li>
+                                <li><code>justifyFull</code> - Justify</li>
+                                <li><code>directionLTR</code> - Set inline LTR direction</li>
+                                <li><code>directionRTL</code> - Set inline RTL direction</li>
+                                <li><code>paragraphLTR</code> - Set block-level LTR direction</li>
+                                <li><code>paragraphRTL</code> - Set block-level RTL direction</li>
+                                <li><code>insertTable</code> - Insert table</li>
+                                <li><code>insertImage</code> - Insert image</li>
+                                <li><code>insertLink</code> - Insert link</li>
+                                <li><code>codeView</code> - Toggle HTML view</li>
+                                <li><code>fullscreen</code> - Toggle fullscreen</li>
+                                <li><code>undo</code> - Undo</li>
+                                <li><code>redo</code> - Redo</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info mt-4">
+                        <strong>Note:</strong> Color pickers include a live indicator bar that mirrors the selected text/background color and resets when no color is applied.
+                    </div>
+                </section>
+
+                <section id="localization" class="mb-5">
+                    <h2>Localization</h2>
+                    <p>BarnamenevisEditor ships with English (<code>en</code>) and Persian (<code>fa</code>). Adding more languages is straightforward:</p>
+                    
+                    <h4>1. Load Language Files</h4>
+                    <p>Load the language file(s) after <code>js/BarnamenevisEditor.js</code>:</p>
+                    <pre class="bg-light p-3 rounded"><code>&lt;script src="js/BarnamenevisEditor.js"&gt;&lt;/script&gt;
+&lt;script src="js/lang/en.js"&gt;&lt;/script&gt;
+&lt;script src="js/lang/fa.js"&gt;&lt;/script&gt;</code></pre>
+
+                    <h4 class="mt-4">2. Initialize with Language</h4>
+                    <pre class="bg-light p-3 rounded"><code>$('#editor').barnamenevisEditor({
+    language: 'fa'  // or 'en'
+});</code></pre>
+
+                    <h4 class="mt-4">3. Create New Translations</h4>
+                    <p>Copy <code>js/lang/en.js</code> and update the language code:</p>
+                    <pre class="bg-light p-3 rounded"><code>(function () {
+    window.BarnamenevisEditor = window.BarnamenevisEditor || {};
+    window.BarnamenevisEditor.lang = window.BarnamenevisEditor.lang || {};
+
+    window.BarnamenevisEditor.lang.ar = {
+        toolbar: {
+            undo: 'تراجع (Ctrl+Z)',
+            redo: 'إعادة (Ctrl+Y)',
+            // … more toolbar strings
+        },
+        modal: {
+            insertLink: 'إدراج رابط',
+            // … more modal strings
+        },
+        statusBar: {
+            words: 'كلمات',
+            word: 'كلمة',
+            characters: 'أحرف',
+            character: 'حرف'
+        },
+        messages: {
+            enterUrl: 'الرجاء إدخال عنوان URL'
+        },
+        placeholder: 'ابدأ الكتابة...'
+    };
+})();</code></pre>
+
+                    <div class="alert alert-success mt-4">
+                        <h5 class="alert-heading"><i class="bi bi-lightbulb"></i> Tips</h5>
+                        <ul class="mb-0">
+                            <li>Only load the language files you need to keep bundle size small</li>
+                            <li>RTL languages should set <code>&lt;html dir="rtl"&gt;</code> (or wrap the editor)</li>
+                            <li>Missing translations fall back to English automatically</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="custom-fonts" class="mb-5">
+                    <h2>Custom Fonts</h2>
+                    <p>BarnamenevisEditor can show any font in the dropdown—system fonts, local @font-face, or Google Fonts.</p>
+                    
+                    <h4>Basic Setup</h4>
+                    <ol>
+                        <li><strong>Load the font</strong> (CSS @font-face, external stylesheet, or Google Fonts link)</li>
+                        <li><strong>Provide the font list</strong> via <code>fontFamilies</code>. When specified, your list replaces the defaults entirely.</li>
+                        <li><strong>Use object format</strong> to show localized names or include fallbacks</li>
+                    </ol>
+
+                    <h4 class="mt-4">Example: Custom Fonts with Display Names</h4>
+                    <pre class="bg-light p-3 rounded"><code>$('#editor').barnamenevisEditor({
+    language: 'en',
+    fontFamilies: [
+        'Arial',
+        'Georgia',
+        { displayName: 'میخک (Mikhak)', value: 'Mikhak, Tahoma, sans-serif' },
+        { displayName: 'Roboto', value: 'Roboto, Arial, sans-serif' }
+    ]
+});</code></pre>
+
+                    <h4 class="mt-4">Example: Persian Editor with Custom Fonts</h4>
+                    <pre class="bg-light p-3 rounded"><code>&lt;!-- Load Persian fonts --&gt;
+&lt;link rel="stylesheet" href="fonts/mikhak/Mikhak.css"&gt;
+&lt;link rel="stylesheet" href="fonts/sahel/Sahel.css"&gt;
+&lt;link rel="stylesheet" href="fonts/vazir/Vazirmatn.css"&gt;
+
+&lt;script&gt;
+$('#persianEditor').barnamenevisEditor({
+    language: 'fa',
+    fontFamilies: [
+        'Tahoma',
+        'Arial',
+        { displayName: 'میخک (Mikhak)', value: 'Mikhak, Tahoma, sans-serif' },
+        { displayName: 'ساحل (Sahel)', value: 'Sahel, Tahoma, sans-serif' },
+        { displayName: 'وزیر (Vazir)', value: 'Vazirmatn, Tahoma, sans-serif' }
+    ]
+});
+&lt;/script&gt;</code></pre>
+
+                    <div class="alert alert-warning mt-4">
+                        <h5 class="alert-heading"><i class="bi bi-exclamation-triangle"></i> Best Practices</h5>
+                        <ul class="mb-0">
+                            <li>Always include fallback fonts in <code>value</code></li>
+                            <li>Ensure the font stylesheet loads <strong>before</strong> initializing the editor</li>
+                            <li>Use Developer Tools → Network (Font filter) to confirm font files load successfully</li>
+                            <li>When <code>fontFamilies</code> is specified, only those fonts appear—no defaults are merged</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="styling" class="mb-5">
+                    <h2>Styling & Themes</h2>
+                    <p>BarnamenevisEditor supports multiple themes and custom styling:</p>
+                    
+                    <h4>Dark Mode:</h4>
+                    <p>Toggle dark mode by adding the <code>theme-dark</code> class to the editor wrapper:</p>
+                    <pre class="bg-light p-3 rounded"><code>// Enable dark mode
+$('.custom-editor-wrapper').addClass('theme-dark');
+
+// Toggle dark mode
+$('.custom-editor-wrapper').toggleClass('theme-dark');
+
+// Full page dark mode
+$('body').addClass('dark-mode');
+$('.custom-editor-wrapper').addClass('theme-dark');</code></pre>
+
+                    <div class="alert alert-info mt-3">
+                        <strong>Note:</strong> Demo pages include a toggle that adds <code>body.dark-mode</code>, theming headings, buttons, code blocks, and the editor wrapper together. Code view and HTML preview force LTR direction, Consolas font, no left gutter, and sanitized indentation.
+                    </div>
+
+                    <h4 class="mt-4">Custom Styling:</h4>
+                    <p>Override CSS classes to customize appearance:</p>
+                    <pre class="bg-light p-3 rounded"><code>.custom-editor-wrapper {
+    border: 2px solid #007bff;
+    border-radius: 8px;
+}
+
+.custom-editor-toolbar {
+    background: linear-gradient(to right, #667eea 0%, #764ba2 100%);
+}
+
+.custom-editor-content {
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+}</code></pre>
+                </section>
+
+                <section id="keyboard" class="mb-5">
+                    <h2>Keyboard Shortcuts</h2>
+                    <p>BarnamenevisEditor supports standard keyboard shortcuts for common editing tasks:</p>
+                    
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Shortcut</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><kbd>Ctrl</kbd> + <kbd>B</kbd></td>
+                                <td>Bold</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Ctrl</kbd> + <kbd>I</kbd></td>
+                                <td>Italic</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Ctrl</kbd> + <kbd>U</kbd></td>
+                                <td>Underline</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Ctrl</kbd> + <kbd>Z</kbd></td>
+                                <td>Undo</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Ctrl</kbd> + <kbd>Y</kbd></td>
+                                <td>Redo</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Z</kbd></td>
+                                <td>Redo (alternative)</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Tab</kbd></td>
+                                <td>Indent (in lists)</td>
+                            </tr>
+                            <tr>
+                                <td><kbd>Ctrl</kbd> + <kbd>C</kbd> / <kbd>X</kbd> / <kbd>V</kbd></td>
+                                <td>Copy / Cut / Paste (browser defaults)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="alert alert-secondary">
+                        <strong>Tip:</strong> On macOS, use <kbd>Cmd</kbd> instead of <kbd>Ctrl</kbd>.
+                    </div>
+                </section>
+
+                <section id="examples" class="mb-5">
+                    <h2>Code Examples</h2>
+                    
+                    <h4>Example 1: Basic Editor</h4>
+                    <pre class="bg-light p-3 rounded"><code>&lt;textarea id="editor1"&gt;&lt;/textarea&gt;
+
+&lt;script&gt;
+$('#editor1').barnamenevisEditor({ language: 'en' });
+&lt;/script&gt;</code></pre>
+
+                    <h4 class="mt-4">Example 2: Editor with Custom Height</h4>
+                    <pre class="bg-light p-3 rounded"><code>$('#editor2').barnamenevisEditor({
+    height: '300px',
+    toolbar: 'basic',
+    language: 'en'
+});</code></pre>
+
+                    <h4 class="mt-4">Example 3: Editor with Change Callback</h4>
+                    <pre class="bg-light p-3 rounded"><code>$('#editor3').barnamenevisEditor({
+    language: 'en',
+    onChange: function(content) {
+        $('#preview').html(content);
+    }
+});</code></pre>
+
+                    <h4 class="mt-4">Example 4: Multiple Editors</h4>
+                    <pre class="bg-light p-3 rounded"><code>$('.editor').each(function() {
+    $(this).barnamenevisEditor({
+        height: '250px',
+        toolbar: 'minimal',
+        language: 'en'
+    });
+});</code></pre>
+
+                    <h4 class="mt-4">Example 5: Get and Set Content</h4>
+                    <pre class="bg-light p-3 rounded"><code>// Get content
+var html = $('#editor5').barnamenevisEditor('getContent');
+console.log(html);
+
+// Set content
+$('#editor5').barnamenevisEditor('setContent', '&lt;h1&gt;Hello World&lt;/h1&gt;');
+
+// Get plain text
+var text = $('#editor5').barnamenevisEditor('getText');
+console.log(text);</code></pre>
+                </section>
+
+                <section id="troubleshooting" class="mb-5">
+                    <h2>Troubleshooting</h2>
+                    <p>Common issues and solutions:</p>
+                    
+                    <div class="accordion" id="troubleshootingAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#issue1">
+                                    Editor doesn't initialize
+                                </button>
+                            </h2>
+                            <div id="issue1" class="accordion-collapse collapse show" data-bs-parent="#troubleshootingAccordion">
+                                <div class="accordion-body">
+                                    Ensure jQuery loads before <code>js/app.js</code>. Check the browser console for JavaScript errors and verify all script tags are in the correct order.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#issue2">
+                                    Content doesn't submit with form
+                                </button>
+                            </h2>
+                            <div id="issue2" class="accordion-collapse collapse" data-bs-parent="#troubleshootingAccordion">
+                                <div class="accordion-body">
+                                    Call <code>$('#editor').barnamenevisEditor('getContent')</code> on form submit to retrieve the HTML content manually. The original textarea is hidden and not automatically updated.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#issue3">
+                                    Custom font not visible
+                                </button>
+                            </h2>
+                            <div id="issue3" class="accordion-collapse collapse" data-bs-parent="#troubleshootingAccordion">
+                                <div class="accordion-body">
+                                    <ul class="mb-0">
+                                        <li>Confirm font files load (check Network tab in DevTools)</li>
+                                        <li>Match the exact <code>font-family</code> name in CSS</li>
+                                        <li>Include fallback fonts in the <code>value</code> property</li>
+                                        <li>Ensure font stylesheets load before editor initialization</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#issue4">
+                                    Colors apply in wrong place
+                                </button>
+                            </h2>
+                            <div id="issue4" class="accordion-collapse collapse" data-bs-parent="#troubleshootingAccordion">
+                                <div class="accordion-body">
+                                    Verify selection is active. Modal and color pickers now save & restore selection automatically, but if issues persist, click inside the editor content area before applying formatting.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#issue5">
+                                    RTL layout issues
+                                </button>
+                            </h2>
+                            <div id="issue5" class="accordion-collapse collapse" data-bs-parent="#troubleshootingAccordion">
+                                <div class="accordion-body">
+                                    Wrap the editor container with <code>dir="rtl"</code> or use the paragraph direction buttons (paragraphLTR/paragraphRTL) to toggle block-level direction. For inline direction changes, use directionLTR/directionRTL buttons.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="browser-support" class="mb-5">
+                    <h2>Browser Support</h2>
+                    <p>BarnamenevisEditor works on all modern browsers without polyfills:</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <i class="bi bi-browser-chrome text-primary"></i> Chrome / Edge (Chromium) <span class="badge bg-success">Supported</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="bi bi-browser-firefox text-warning"></i> Firefox <span class="badge bg-success">Supported</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <i class="bi bi-browser-safari text-info"></i> Safari <span class="badge bg-success">Supported</span>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="bi bi-phone text-secondary"></i> Mobile browsers (iOS/Android) <span class="badge bg-success">Supported</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-secondary mt-3">
+                        <strong>Note:</strong> Internet Explorer is not supported. All features rely on modern JavaScript APIs and CSS features available in evergreen browsers.
+                    </div>
+                </section>
+
+                <div class="alert alert-info">
+                    <h4 class="alert-heading">
+                        <i class="bi bi-info-circle"></i> Need Help?
+                    </h4>
+                    <p>Check out the <a href="examples.html" class="alert-link">Examples</a> page for more practical demonstrations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>BarnamenevisEditor</h5>
+                    <p>A full-featured HTML editor built with pure JavaScript</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>&copy; 2025 BarnamenevisEditor. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Toggle dark mode for entire page
+            $('#toggleDarkMode').on('click', function() {
+                var isDark = $('body').hasClass('dark-mode');
+                
+                if (isDark) {
+                    // Switch to light mode
+                    $('body').removeClass('dark-mode');
+                    $(this).find('i').removeClass('bi-sun-fill').addClass('bi-moon-fill');
+                } else {
+                    // Switch to dark mode
+                    $('body').addClass('dark-mode');
+                    $(this).find('i').removeClass('bi-moon-fill').addClass('bi-sun-fill');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

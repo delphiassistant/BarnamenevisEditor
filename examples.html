@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examples - BarnamenevisEditor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/BarnamenevisEditor.css" rel="stylesheet">
+    <!-- Persian fonts for Example 11 -->
+    <link rel="stylesheet" href="fonts/mikhak/Mikhak.css">
+    <link rel="stylesheet" href="fonts/sahel/Sahel.css">
+    <link rel="stylesheet" href="fonts/vazir/Vazirmatn.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-pencil-square"></i> BarnamenevisEditor
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Demo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index-fa.html">نسخه فارسی</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="documentation.html">Documentation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="examples.html">Examples</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-link nav-link" id="toggleDarkMode" style="border: none;">
+                            <i class="bi bi-moon-fill"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    <div class="container py-5">
+        <h1 class="mb-4">BarnamenevisEditor Examples</h1>
+        <p class="lead">Practical examples showing different configurations and use cases</p>
+
+        <!-- Example 1: Basic Editor -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4 class="mb-0">Example 1: Basic Editor</h4>
+            </div>
+            <div class="card-body">
+                <p>Simple editor with default settings</p>
+                <textarea id="example1">
+                    <p>This is a <strong>basic editor</strong> with default settings.</p>
+                </textarea>
+                <details class="mt-3">
+                    <summary class="btn btn-sm btn-outline-primary">Show Code</summary>
+                    <pre class="bg-light p-3 rounded mt-2"><code>$('#example1').barnamenevisEditor({ language: 'en' });</code></pre>
+                </details>
+            </div>
+        </div>
+
+        <!-- Example 2: Minimal Toolbar -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4 class="mb-0">Example 2: Minimal Toolbar</h4>
+            </div>
+            <div class="card-body">
+                <p>Editor with minimal toolbar for simple formatting</p>
+                <textarea id="example2">
+                    <p>This editor has a <em>minimal toolbar</em> with essential formatting options.</p>
+                </textarea>
+                <details class="mt-3">
+                    <summary class="btn btn-sm btn-outline-primary">Show Code</summary>
+                    <pre class="bg-light p-3 rounded mt-2"><code>$('#example2').barnamenevisEditor({
+    language: 'en',
+    toolbar: 'minimal',
+    height: '250px'
+});</code></pre>
+                </details>
+            </div>
+        </div>
+
+        <!-- Example 3: Live Preview -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4 class="mb-0">Example 3: Live Preview</h4>
+            </div>
+            <div class="card-body">
+                <p>Editor with live HTML preview</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <textarea id="example3">
+                            <h3>Live Preview Demo</h3>
+                            <p>Type here and see the <strong>live preview</strong> on the right!</p>
+                        </textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="border rounded p-3 bg-light" style="min-height: 250px;">
+                            <h5>Preview:</h5>
+                            <div id="preview3"></div>
+                        </div>
+                    </div>
+                </div>
+                <details class="mt-3">
+                    <summary class="btn btn-sm btn-outline-primary">Show Code</summary>
+                    <pre class="bg-light p-3 rounded mt-2"><code>$('#example3').barnamenevisEditor({
+    language: 'en',
+    height: '250px',
+    onChange: function(content) {
+        $('#preview3').html(content);
+    }
+});</code></pre>
+                </details>
+            </div>
+        </div>
+
+        <!-- Example 4: Custom Toolbar -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4 class="mb-0">Example 4: Custom Toolbar Configuration</h4>
+            </div>
+            <div class="card-body">
+                <p>Editor with custom toolbar buttons</p>
+                <textarea id="example4">
+                    <p>This editor has a <strong>custom toolbar</strong> with specific buttons.</p>
+                </textarea>
+                <details class="mt-3">
+                    <summary class="btn btn-sm btn-outline-primary">Show Code</summary>
+                    <pre class="bg-light p-3 rounded mt-2"><code>$('#example4').barnamenevisEditor({
+    height: '250px',
+    toolbar: [
+        ['bold', 'italic', 'underline'],
+        ['forecolor', 'backcolor'],
+        ['insertLink'],
+        ['undo', 'redo']
+    ]
+});</code></pre>
+                </details>
+            </div>
+        </div>
+
+        <!-- Example 5: Blog Post Editor -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4 class="mb-0">Example 5: Blog Post Editor</h4>
+            </div>
+            <div class="card-body">
+                <p>Full-featured editor for blog posts</p>
+                <div class="mb-3">
+                    <label class="form-label">Post Title:</label>
+                    <input type="text" class="form-control" id="postTitle" value="My Amazing Blog Post">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Content:</label>
+                    <textarea id="example5">
+                        <h2>Introduction</h2>
+                        <p>Welcome to my blog post! This editor is perfect for creating rich content.</p>
+                        <h3>Key Features</h3>
+                        <ul>
+                            <li>Easy to use</li>
+                            <li>Full formatting options</li>
+                            <li>Image and link support</li>
+                        </ul>
+                    </textarea>
+                </div>
+                <button class="btn btn-success" id="saveBlogPost">
+                    <i class="bi bi-save"></i> Save Blog Post
+                </button>
+                <details class="mt-3">
+                    <summary class="btn btn-sm btn-outline-primary">Show Code</summary>
+                    <pre class="bg-light p-3 rounded mt-2"><code>$('#example5').barnamenevisEditor({
+    height: '400px',
+    toolbar: 'full'
+});
+
+$('#saveBlogPost').on('click', function() {
+    var title = $('#postTitle').val();
+    var content = $('#example5').barnamenevisEditor('getContent');
+    console.log('Title:', title);
+    console.log('Content:', content);
+    showBootstrapAlert('success', window.BarnamenevisEditor.lang.en.messages.blogPostSaved);
+});</code></pre>
+                </details>
+            </div>
+        </div>
+
+        <!-- Example 6: Email Composer -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4 class="mb-0">Example 6: Email Composer</h4>
+            </div>
+            <div class="card-body">
+                <p>Email-style editor with recipient fields</p>
+                <div class="mb-2">
+                    <label class="form-label">To:</label>
+                    <input type="email" class="form-control" placeholder="recipient@example.com">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Subject:</label>
+                    <input type="text" class="form-control" placeholder="Email Subject">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Message:</label>
+                    <textarea id="example6">
+                        <p>Dear recipient,</p>
+                        <p>I hope this email finds you well.</p>
+                        <p>Best regards,<br>Your Name</p>
+                    </textarea>
+                </div>
+                <button class="btn btn-primary">
+                    <i class="bi bi-paper-plane"></i> Send Email
+                </button>
+                <details class="mt-3">
+                    <summary class="btn btn-sm btn-outline-primary">Show Code</summary>
+                    <pre class="bg-light p-3 rounded mt-2"><code>$('#example6').barnamenevisEditor({
+    height: '300px',
+    toolbar: 'basic'
+});</code></pre>
+                </details>
+            </div>
+        </div>
+
+        <!-- Example 7: Comment Editor -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4 class="mb-0">Example 7: Comment Editor (Compact)</h4>
+            </div>
+            <div class="card-body">
+                <p>Compact editor for comments</p>
+                <textarea id="example7">
+                    <p>Add your comment here...</p>
+                </textarea>
+                <button class="btn btn-primary btn-sm mt-2" id="postComment">
+                    <i class="bi bi-comment"></i> Post Comment
+                </button>
+                <div id="commentsDisplay" class="mt-3"></div>
+                <details class="mt-3">
+                    <summary class="btn btn-sm btn-outline-primary">Show Code</summary>
+                    <pre class="bg-light p-3 rounded mt-2"><code>$('#example7').barnamenevisEditor({
+    height: '150px',
+    toolbar: 'minimal'
+});
+
+$('#postComment').on('click', function() {
+    var comment = $('#example7').barnamenevisEditor('getContent');
+    $('#commentsDisplay').append(
+        '&lt;div class="alert alert-secondary"&gt;' + comment + '&lt;/div&gt;'
+    );
+    $('#example7').barnamenevisEditor('clear');
+});</code></pre>
+                </details>
+            </div>
+        </div>
+
+        <!-- Example 8: Read-Only Mode -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4 class="mb-0">Example 8: Read-Only Mode</h4>
+            </div>
+            <div class="card-body">
+                <p>Editor in read-only mode (disabled)</p>
+                <textarea id="example8">
+                    <h3>Read-Only Content</h3>
+                    <p>This content is displayed in the editor but cannot be modified.</p>
+                </textarea>
+                <button class="btn btn-warning btn-sm mt-2" id="toggleEdit">
+                    <i class="bi bi-lock"></i> Toggle Edit Mode
+                </button>
+                <details class="mt-3">
+                    <summary class="btn btn-sm btn-outline-primary">Show Code</summary>
+                    <pre class="bg-light p-3 rounded mt-2"><code>$('#example8').barnamenevisEditor({
+    height: '200px'
+});
+
+// Disable on load
+$('#example8').barnamenevisEditor('disable');
+
+// Toggle edit mode
+$('#toggleEdit').on('click', function() {
+    // Toggle between enable and disable
+});</code></pre>
+                </details>
+            </div>
+        </div>
+
+        <!-- Example 9: Dark Theme -->
+        <div class="card mb-4 bg-dark text-white">
+            <div class="card-header">
+                <h4 class="mb-0">Example 9: Dark Theme</h4>
+            </div>
+            <div class="card-body">
+                <p>Editor with dark theme</p>
+                <textarea id="example9">
+                    <p>This editor uses a <strong>dark theme</strong> perfect for night mode.</p>
+                </textarea>
+                <details class="mt-3">
+                    <summary class="btn btn-sm btn-outline-light">Show Code</summary>
+                    <pre class="bg-secondary text-white p-3 rounded mt-2"><code>$('#example9').barnamenevisEditor({
+    height: '200px',
+    theme: 'dark'
+});</code></pre>
+                </details>
+            </div>
+        </div>
+
+        <!-- Example 10: Form Integration -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4 class="mb-0">Example 10: Form Integration</h4>
+            </div>
+            <div class="card-body">
+                <p>Editor integrated with a form submission</p>
+                <form id="contentForm">
+                    <div class="mb-3">
+                        <label class="form-label">Name:</label>
+                        <input type="text" class="form-control" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email:</label>
+                        <input type="email" class="form-control" name="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Message:</label>
+                        <textarea id="example10" name="message">
+                            <p>Enter your message here...</p>
+                        </textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-paper-plane"></i> Submit Form
+                    </button>
+                </form>
+                <div id="formResult" class="mt-3"></div>
+                <details class="mt-3">
+                    <summary class="btn btn-sm btn-outline-primary">Show Code</summary>
+                    <pre class="bg-light p-3 rounded mt-2"><code>$('#example10').barnamenevisEditor({
+    height: '250px'
+});
+
+$('#contentForm').on('submit', function(e) {
+    e.preventDefault();
+    var formData = {
+        name: $('[name="name"]').val(),
+        email: $('[name="email"]').val(),
+        message: $('#example10').barnamenevisEditor('getContent')
+    };
+    console.log('Form Data:', formData);
+    $('#formResult').html(
+        '&lt;div class="alert alert-success"&gt;Form submitted successfully!&lt;/div&gt;'
+    );
+});</code></pre>
+                </details>
+            </div>
+        </div>
+
+        <!-- Example 11: Persian (RTL) Editor -->
+        <div class="card mb-4" dir="rtl">
+            <div class="card-header">
+                <h4 class="mb-0">Example 11: Persian (RTL) Editor with Custom Fonts</h4>
+            </div>
+            <div class="card-body">
+                <p>ویرایشگر فارسی با پشتیبانی کامل از راست‌به‌چپ و فونت‌های سفارشی</p>
+                <textarea id="example11">
+                    <h2>به ویرایشگر برنامه‌نویس خوش آمدید!</h2>
+                    <p>این یک <strong>ویرایشگر کامل و پیشرفته</strong> HTML است که با جاوااسکریپت خالص ساخته شده است.</p>
+                    <h3>ویژگی‌های کلیدی:</h3>
+                    <ul>
+                        <li>قالب‌بندی متن (درشت، کج، زیرخط‌دار، خط‌خورده)</li>
+                        <li>انتخاب خانواده و اندازه فونت</li>
+                        <li>رنگ متن و پس‌زمینه</li>
+                        <li>لیست‌های شماره‌دار و نشانه‌دار</li>
+                        <li>چینش متن (چپ، راست، وسط، هم‌تراز)</li>
+                        <li>جداول با مدیریت کامل</li>
+                        <li>درج تصویر و لینک</li>
+                        <li>نمای کد برای ویرایش HTML</li>
+                        <li>حالت تمام‌صفحه</li>
+                        <li>عملیات برگشت/جلو (Undo/Redo)</li>
+                    </ul>
+                    <p>این ویرایشگر از <strong>زبان فارسی</strong> و جهت راست‌به‌چپ پشتیبانی کامل می‌کند!</p>
+                </textarea>
+                <details class="mt-3">
+                    <summary class="btn btn-sm btn-outline-primary">نمایش کد</summary>
+                    <pre class="bg-light p-3 rounded mt-2"><code>// Include Persian language file
+&lt;script src="js/lang/fa.js"&gt;&lt;/script&gt;
+
+// Load custom Persian fonts
+&lt;link rel="stylesheet" href="fonts/mikhak/Mikhak.css"&gt;
+&lt;link rel="stylesheet" href="fonts/sahel/Sahel.css"&gt;
+
+// Initialize with Persian language and custom fonts
+$('#example11').barnamenevisEditor({
+    language: 'fa',
+    height: '500px',
+    toolbar: 'full',
+    fontFamilies: [
+        'Tahoma',
+        'Arial',
+        { displayName: 'میخک (Mikhak)', value: 'Mikhak, Tahoma, sans-serif' },
+        { displayName: 'ساحل (Sahel)', value: 'Sahel, Tahoma, sans-serif' },
+        { displayName: 'وزیر (Vazir)', value: 'Vazirmatn, Tahoma, sans-serif' }
+    ]
+});</code></pre>
+                </details>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>BarnamenevisEditor</h5>
+                    <p>A full-featured HTML editor built with pure JavaScript</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>&copy; 2025 BarnamenevisEditor. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/BarnamenevisEditor.js"></script>
+    <script src="js/lang/en.js"></script>
+    <script src="js/lang/fa.js"></script>
+    <script>
+        // Bootstrap Alert Modal Helper
+        function showBootstrapAlert(type, message, title) {
+            // Create unique ID for the modal
+            var modalId = 'alertModal' + Date.now();
+            
+            // Determine title if not provided
+            if (!title) {
+                var lang = window.BarnamenevisEditor.lang.en || window.BarnamenevisEditor.lang.fa;
+                title = lang.messages.info;
+                if (type === 'success') title = lang.messages.success;
+                if (type === 'error') title = lang.messages.error;
+            }
+            
+            // Determine icon
+            var icon = 'bi-info-circle';
+            var iconColor = 'text-info';
+            if (type === 'success') {
+                icon = 'bi-check-circle';
+                iconColor = 'text-success';
+            } else if (type === 'error') {
+                icon = 'bi-x-circle';
+                iconColor = 'text-danger';
+            }
+            
+            // Create modal HTML
+            var modalHtml = `
+                <div class="modal fade" id="${modalId}" tabindex="-1" aria-hidden="true" style="z-index: 10200;">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title"><i class="bi ${icon} ${iconColor}"></i> ${title}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ${message}
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">${(window.BarnamenevisEditor.lang.en || window.BarnamenevisEditor.lang.fa).messages.ok}</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Add modal to body
+            $('body').append(modalHtml);
+            
+            // Show modal
+            var modal = new bootstrap.Modal(document.getElementById(modalId));
+            modal.show();
+            
+            // Ensure backdrop is also above editor modals
+            setTimeout(function() {
+                $('.modal-backdrop').last().css('z-index', '10150');
+            }, 100);
+            
+            // Remove modal from DOM after it's hidden
+            $('#' + modalId).on('hidden.bs.modal', function() {
+                $(this).remove();
+            });
+        }
+        
+        $(document).ready(function() {
+            // Example 1: Basic
+            $('#example1').barnamenevisEditor({ language: 'en' });
+
+            // Example 2: Minimal
+            $('#example2').barnamenevisEditor({
+                language: 'en',
+                toolbar: 'minimal',
+                height: '250px'
+            });
+
+            // Example 3: Live Preview
+            $('#example3').barnamenevisEditor({
+                language: 'en',
+                height: '250px',
+                onChange: function(content) {
+                    $('#preview3').html(content);
+                }
+            });
+            $('#preview3').html($('#example3').val());
+
+            // Example 4: Custom Toolbar
+            $('#example4').barnamenevisEditor({
+                language: 'en',
+                height: '250px',
+                toolbar: [
+                    ['bold', 'italic', 'underline'],
+                    ['forecolor', 'backcolor'],
+                    ['insertLink'],
+                    ['undo', 'redo']
+                ]
+            });
+
+            // Example 5: Blog Post
+            $('#example5').barnamenevisEditor({
+                language: 'en',
+                height: '400px',
+                toolbar: 'full'
+            });
+
+            $('#saveBlogPost').on('click', function() {
+                var title = $('#postTitle').val();
+                var content = $('#example5').barnamenevisEditor('getContent');
+                showBootstrapAlert('success', window.BarnamenevisEditor.lang.en.messages.blogPostSaved + '<br><strong>Title:</strong> ' + title);
+            });
+
+            // Example 6: Email
+            $('#example6').barnamenevisEditor({
+                language: 'en',
+                height: '300px',
+                toolbar: 'basic'
+            });
+
+            // Example 7: Comments
+            $('#example7').barnamenevisEditor({
+                language: 'en',
+                height: '150px',
+                toolbar: 'minimal'
+            });
+
+            $('#postComment').on('click', function() {
+                var comment = $('#example7').barnamenevisEditor('getContent');
+                $('#commentsDisplay').append(
+                    '<div class="alert alert-secondary">' + comment + '</div>'
+                );
+                $('#example7').barnamenevisEditor('clear');
+            });
+
+            // Example 8: Read-only
+            $('#example8').barnamenevisEditor({
+                language: 'en',
+                height: '200px'
+            });
+            $('#example8').barnamenevisEditor('disable');
+            
+            var isEnabled = false;
+            $('#toggleEdit').on('click', function() {
+                if (isEnabled) {
+                    $('#example8').barnamenevisEditor('disable');
+                    $(this).html('<i class="bi bi-lock"></i> Enable Edit Mode');
+                } else {
+                    $('#example8').barnamenevisEditor('enable');
+                    $(this).html('<i class="bi bi-unlock"></i> Disable Edit Mode');
+                }
+                isEnabled = !isEnabled;
+            });
+
+            // Example 9: Dark Theme
+            $('#example9').barnamenevisEditor({
+                language: 'en',
+                height: '200px'
+            });
+            // Enable dark mode for example 9
+            setTimeout(() => {
+                $('#example9').next('.custom-editor-wrapper').addClass('theme-dark');
+            }, 100);
+
+            // Example 10: Form
+            $('#example10').barnamenevisEditor({
+                language: 'en',
+                height: '250px'
+            });
+
+            $('#contentForm').on('submit', function(e) {
+                e.preventDefault();
+                var formData = {
+                    name: $('[name="name"]').val(),
+                    email: $('[name="email"]').val(),
+                    message: $('#example10').barnamenevisEditor('getContent')
+                };
+                $('#formResult').html(
+                    '<div class="alert alert-success"><i class="bi bi-check-circle"></i> Form submitted successfully!</div>'
+                );
+            });
+
+            // Example 11: Persian (RTL) Editor with Custom Fonts
+            $('#example11').barnamenevisEditor({
+                language: 'fa',
+                height: '500px',
+                toolbar: 'full',
+                fontFamilies: [                    
+                    { displayName: 'میخک (Mikhak)', value: 'Mikhak, Tahoma, sans-serif' },
+                    { displayName: 'ساحل (Sahel)', value: 'Sahel, Tahoma, sans-serif' },
+                    { displayName: 'وزیر (Vazir)', value: 'Vazirmatn, Tahoma, sans-serif' }
+                ]
+            });
+
+            // Toggle dark mode for entire page
+            $('#toggleDarkMode').on('click', function() {
+                var isDark = $('body').hasClass('dark-mode');
+                
+                if (isDark) {
+                    // Switch to light mode
+                    $('body').removeClass('dark-mode');
+                    $('.custom-editor-wrapper').removeClass('theme-dark');
+                    $(this).find('i').removeClass('bi-sun-fill').addClass('bi-moon-fill');
+                } else {
+                    // Switch to dark mode
+                    $('body').addClass('dark-mode');
+                    $('.custom-editor-wrapper').addClass('theme-dark');
+                    $(this).find('i').removeClass('bi-moon-fill').addClass('bi-sun-fill');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

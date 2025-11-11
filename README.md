@@ -7,6 +7,8 @@ A lightweight, fully-featured HTML editor built with vanilla JavaScript, jQuery,
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-purple.svg)
 ![jQuery](https://img.shields.io/badge/jQuery-3.7-blue.svg)
 
+**Live Demo:** [https://delphiassistant.github.io/BarnamenevisEditor/](https://delphiassistant.github.io/BarnamenevisEditor/)
+
 ---
 
 ## Key Features
